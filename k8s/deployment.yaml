@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,3 +18,24 @@ spec:
         image: jainanant/my_web_app:latest
         ports:
         - containerPort: 5000
+=======
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web-app
+        image: your-docker-registry/my_web_app:latest
+        ports:
+        - containerPort: 5000
+>>>>>>> 020a4e078f6b26d30ad5b1c031e1c14adbed790c
