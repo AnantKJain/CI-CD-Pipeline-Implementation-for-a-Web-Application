@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: web-app
-        image: jainanant/my_web_app:latest
+        image: your-docker-registry/my_web_app:latest
         ports:
         - containerPort: 5000

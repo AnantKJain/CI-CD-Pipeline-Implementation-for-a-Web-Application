@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY = 'your-docker-registry'
+        DOCKER_REGISTRY = 'jainanant00'
         DOCKER_IMAGE = "${env.DOCKER_REGISTRY}/my_web_app:latest"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://your-repository-url.git'
+                git branch: 'main', url: 'https://github.com/AnantKJain/CI-CD-Pipeline-Implementation-for-a-Web-Application.git'
             }
         }
         stage('Build Docker Image') {
@@ -22,7 +22,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('', 'docker-credentials-id') {
+                    docker.withRegistry('', 'Docker-Credentials-id') {
                         dockerImage.push()
                     }
                 }
@@ -33,7 +33,7 @@ pipeline {
                 script {
                     kubernetesDeploy(
                         configs: 'k8s/deployment.yaml',
-                        kubeconfigId: 'kubeconfig-credentials-id'
+                        kubeconfigId: 'Kubeconfig-Credentials-id'
                     )
                 }
             }
