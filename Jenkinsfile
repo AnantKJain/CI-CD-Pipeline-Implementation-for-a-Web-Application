@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/AnantKJain/CI-CD-Pipeline-Implementation-for-a-Web-Application.git'
+                git branch: 'master', url: 'https://github.com/AnantKJain/CI-CD-Pipeline-Implementation-for-a-Web-Application.git'
             }
         }
         stage('Build Docker Image') {
@@ -33,7 +33,7 @@ pipeline {
                 script {
                     kubernetesDeploy(
                         configs: 'k8s/deployment.yaml',
-                        kubeconfigId: 'Kubeconfig-Credentials-id'
+                        kubeconfigId: 'Kubeconfig-Credentials'
                     )
                 }
             }
