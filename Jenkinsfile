@@ -15,7 +15,7 @@ pipeline {
         stage('Pull Base Image') {
             steps {
                 script {
-                    sh 'docker pull python:3.9-slim'
+                    sh 'docker pull docker.io/library/python:3.9'
                 }
             }
         }
