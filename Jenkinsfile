@@ -2,14 +2,21 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_REGISTRY = 'jainanant00'
-        DOCKER_IMAGE = "${env.DOCKER_REGISTRY}/apache-webserver-php"
+        DOCKER_REGISTRY = 'docker.io/jainanant00'
+        DOCKER_IMAGE = "${env.DOCKER_REGISTRY}/my_web_app:latest"
     }
 
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'master', url: 'https://github.com/AnantKJain/CI-CD-Pipeline-Implementation-for-a-Web-Application.git'
+            }
+        }
+        stage('Pull Base Image') {
+            steps {
+                script {
+                    sh 'docker pull python:3.9-slim'
+                }
             }
         }
         stage('Build Docker Image') {
