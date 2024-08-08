@@ -1,5 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.9
+FROM my_web_app:latest
 
 # Set the working directory to /my_web_app
 WORKDIR /my_web_app
