@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_REGISTRY = 'docker.io/jainanant00'
-        DOCKER_IMAGE = "${env.DOCKER_REGISTRY}/apache-webserver-php:latest"
+        DOCKER_IMAGE = "${env.DOCKER_REGISTRY}/apache-webserver-php"
     }
 
     stages {
