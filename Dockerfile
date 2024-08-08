@@ -1,5 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM docker.io/library/python:3.9
+FROM docker.io/library/python:3.9-buster
 
 # Set the working directory to /my_web_app
 WORKDIR /my_web_app
