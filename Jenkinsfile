@@ -40,10 +40,9 @@ pipeline {
             steps {
                 script {
                     withCredentials([file(credentialsId: 'Kubeconfig-Credentials', variable: 'KUBECONFIG')]) {
-                        sh '''
                         kubectl apply -f k8s/deployment.yaml
                         kubectl rollout status deployment/<your-deployment-name>
-                        '''
+                        
                     }
                    
             }
