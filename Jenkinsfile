@@ -44,7 +44,7 @@ pipeline {
                     kubernetesApply(applyStep)
                      //   configs: 'k8s/deployment.yaml',
                      //   kubeconfigId: 'kubeconfig-credentials-id'
-        )
+        
        
                         
                     }
