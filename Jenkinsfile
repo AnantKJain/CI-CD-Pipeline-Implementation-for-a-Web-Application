@@ -35,14 +35,17 @@ pipeline {
                 }
             }
         }
+        
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    kubernetesDeploy(
-                        configs: 'k8s/deployment.yaml',
-                        kubeconfigId: 'Kubeconfig-Credentials'
-                    )
-                }
+                    withCredentials([file(credentialsId: 'Kubeconfig-Credentials', variable: 'KUBECONFIG')]) {
+                        sh '''
+                        kubectl apply -f k8s/deployment.yaml
+                        kubectl rollout status deployment/<your-deployment-name>
+                        '''
+                    }
+                   
             }
         }
     }
