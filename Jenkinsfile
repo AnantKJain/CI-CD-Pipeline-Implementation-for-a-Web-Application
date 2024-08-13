@@ -39,9 +39,10 @@ pipeline {
        stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    echo "Deploying to environment: ${targetEnvironment}"
+                   // echo "Deploying to environment: ${targetEnvironment}"
+                    def targetEnvironment = 'production'  // or 'staging'
                     kubernetesApply(
-                        file: 'k8s/deployment.yaml',
+                        file: "k8s/${targetEnvironment}/deployment.yaml"
                       //  kubeconfigId: 'kubeconfig-credentials-id',
                       //  enableConfigSubstitution: true
 )            
