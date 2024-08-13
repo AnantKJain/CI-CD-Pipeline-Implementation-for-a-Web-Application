@@ -35,6 +35,7 @@ pipeline {
                 }
             }
         }
+       echo "Deploying to environment: ${targetEnvironment}"
        stage('Deploy to Kubernetes') {
             steps {
                 script {
