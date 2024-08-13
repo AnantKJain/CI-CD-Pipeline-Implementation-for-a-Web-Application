@@ -41,9 +41,10 @@ pipeline {
                     def applyStep = [
                         file: 'k8s/deployment.yaml'
                         ]
-                    kubernetesApply(applyStep)
+                    kubernetesApply(applyStep)   
                         configs: 'k8s/deployment.yaml',
                         kubeconfigId: 'kubeconfig-credentials-id'
+                        enableConfigSubstitution: true
         
        
                         
