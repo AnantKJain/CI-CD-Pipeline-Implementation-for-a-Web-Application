@@ -38,14 +38,11 @@ pipeline {
        stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    def applyStep = [
+                    kubernetesApply(
                         file: 'k8s/deployment.yaml',
                         kubeconfigId: 'kubeconfig-credentials-id',
                         enableConfigSubstitution: true
-]
-
-                    kubernetesApply(applyStep)
-        
+)            
        
                         
                     }
