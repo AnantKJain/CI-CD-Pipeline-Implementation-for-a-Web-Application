@@ -40,8 +40,8 @@ pipeline {
                 script {
                     kubernetesApply(
                         file: 'k8s/deployment.yaml',
-                        kubeconfigId: 'kubeconfig-credentials-id',
-                        enableConfigSubstitution: true
+                      //  kubeconfigId: 'kubeconfig-credentials-id',
+                      //  enableConfigSubstitution: true
 )            
        
                         
