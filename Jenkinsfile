@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                    // echo "Deploying to environment: ${targetEnvironment}"
-                    def targetEnvironment = 'production'  // or 'staging'
+                    def targetEnvironment = 'staging' // 'production'  // 
                     echo "Deploying to environment: ${targetEnvironment}"
                     kubernetesApply(
                         file: "k8s/${targetEnvironment}/deployment.yaml"
