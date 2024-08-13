@@ -35,10 +35,11 @@ pipeline {
                 }
             }
         }
-       echo "Deploying to environment: ${targetEnvironment}"
+       
        stage('Deploy to Kubernetes') {
             steps {
                 script {
+                    echo "Deploying to environment: ${targetEnvironment}"
                     kubernetesApply(
                         file: 'k8s/deployment.yaml',
                       //  kubeconfigId: 'kubeconfig-credentials-id',
