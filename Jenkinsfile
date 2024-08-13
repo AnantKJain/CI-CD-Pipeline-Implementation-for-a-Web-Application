@@ -41,6 +41,7 @@ pipeline {
                 script {
                    // echo "Deploying to environment: ${targetEnvironment}"
                     def targetEnvironment = 'production'  // or 'staging'
+                    echo "Deploying to environment: ${targetEnvironment}"
                     kubernetesApply(
                         file: "k8s/${targetEnvironment}/deployment.yaml"
                       //  kubeconfigId: 'kubeconfig-credentials-id',
